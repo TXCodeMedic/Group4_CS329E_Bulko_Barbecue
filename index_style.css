@@ -1,0 +1,49 @@
+body{
+ background-color: #C4C4C4 ;
+}
+
+header{
+ background-color: white;
+ color: #C43A30;
+ width: 100%;
+ margin-left: 0%;
+ margin-right: 0%;
+}
+
+#header-top img{
+ width: 400px;
+ float: left;
+}
+
+#login_account{
+ float: left;
+}
+
+nav{
+ height: 250px;
+}
+
+#food_showcase{
+ margin-top: 5%;
+ background-color: rgb(170, 175, 175);
+ height: 60%;
+ margin-left: 30%;
+ margin-right: 30%;
+}
+
+#food_showcase img{
+ margin-left: 10%;
+ width: 80%;
+}
+
+#calendar{
+ background-color: rgb(170, 175, 175);
+ margin-left: 5%;
+ margin-right: 5%;
+ height: 500px;
+ margin-bottom: 3%;
+}
+
+footer{
+ background-color: rgb(170, 175, 175);
+}
