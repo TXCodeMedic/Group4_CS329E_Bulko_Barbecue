@@ -1,7 +1,7 @@
 document.getElementById("register").addEventListener("click", function login() {
-    u = document.getElementById("login_form").elements[0].value
-    p = document.getElementById("login_form").elements[1].value
-    r = document.getElementById("login_form").elements[2].value
+    u = document.getElementById("registration_form").elements[0].value
+    p = document.getElementById("registration_form").elements[1].value
+    r = document.getElementById("registration_form").elements[2].value
     if (u.length < 6 || u.length > 10 || u.match(/^\W+$/) || u.match(/^\d/)) {
         window.alert('Invalid username or password')
         return (0)
