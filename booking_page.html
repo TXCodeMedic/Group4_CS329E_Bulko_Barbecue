@@ -2,136 +2,131 @@
 <html lang="en">
 
 <head>
- <meta charset="UTF-8">
- <meta http-equiv="X-UA-Compatible" content="IE=edge">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Booking Page</title>
- <link rel="stylesheet" href="booking_page_style.css">
- <script src="booking_page_scripts.js" defer></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking Page</title>
+  <link rel="stylesheet" href="booking_page_style.css">
+  <script src="booking_page_scripts.js" defer></script>
 </head>
 
 <body>
- <!-- Top of the header with logo and login link-->
- <header>
-  <section id="header-top">
-   <img src="images/BB_Logo.jpg" alt="missing_logo">
-   <section id="login_account">
-    <a href="login_page.html">Log In</a>
-   </section>
-  </section>
-  <br>
-  <!-- Nav bar part of the header-->
-  <div class="topnav">
-   <a href="contact_page.html">Contact Us</a>
-   <a href="booking_page.html">Booking</a>
-   <!-- Need to decide if we will make it a pdf download or a seperate page-->
-   <a href="">Menu</a>
-   <a href="index.html">Home</a>
-   <!-- <a href="account_page.html">Account</a> 
+  <!-- Top of the header with logo and login link-->
+  <header>
+    <section id="header-top">
+      <a href="index.html"><img src="images/BB_Logo.jpg" alt="missing_logo"></a>
+      <section id="login_account">
+        <a href="login_form.html">Log In</a>
+      </section>
+    </section>
+    <br>
+    <!-- Nav bar part of the header-->
+    <div class="topnav">
+      <a href="contact_page.html">Contact Us</a>
+      <a href="booking_page.html">Booking</a>
+      <!-- Need to decide if we will make it a pdf download or a seperate page-->
+      <a href="">Menu</a>
+      <!-- <a href="account_page.html">Account</a> 
       Need to decide if we will make it a pdf download or a seperate page
       <a href="">Menu</a> 
       <a href="booking_page.html">Booking</a>
       <a href="contact_page.html">Contact Us</a> -->
-  </div>
- </header>
+    </div>
+  </header>
+  <!-- Ordering Tool-->
+  <h2 id="formTitle">Browse Our Selection</h2>
+  <form action="booking_page1.php" method="POST" id="orderForm">
+    <section id="appetizers">
+      <h2>Appetizers</h1>
+        <div>
+          <img src="images/potatoSkins.jpeg" alt="Potato Skins" width="300px" height="300px">
+          <p>Potato Skins</p>
+          <p>Price: $8.00</p>
+          <p>*Contains Pork*</p>
+          <input id="potatoSkinOrder" type="number" name="potatoSkinOrder">
+        </div>
+        <div>
+          <img src="images/jalapenoPoppers.jpeg" alt="Jalapeno Poppers" width="300px" height="300px">
+          <p>Jalapeño Poppers</p>
+          <p>Price: $7.50</p>
+          <input id="jalapenoPoppersOrder" type="number" name="jalapenoPoppersOrder">
+        </div>
+    </section>
+    <section id="entrees">
+      <h2>Entrees</h2>
+      <div>
+        <img src="images/brisket.jpeg" alt="Brisket" width="300px" height="300px">
+        <p>Brisket</p>
+        <p>Price: $15.00</p>
+        <input id="brisketOrder" type="number" name="brisketOrder">
+      </div>
+      <div>
+        <img src="images/ribs.jpeg" alt="Beef Ribs" width="300px" height="300px">
+        <p>Beef Ribs</p>
+        <p>Price: $20.00</p>
+        <input id="ribsOrder" type="number" name="ribsOrder">
+      </div>
+      <div>
+        <img src="images/sausages.jpeg" alt="Pork Sasuages" width="300px" height="300px">
+        <p>Sausages</p>
+        <p>Price: $12.00</p>
+        <p>*Contains Pork*</p>
+        <input id="sausageOrder" type="number" name="sausageOrder">
+      </div>
+    </section>
+    <section id="sides">
+      <h2>Sides</h2>
+      <div>
+        <img src="images/macAndCheese.jpeg" alt="Mac & Cheese" width="300px" height="300px">
+        <p>Mac & Cheese</p>
+        <p>Price: $6.00</p>
+        <input id="macAndCheeseOrder" type="number" name="macAndCheeseOrder">
+      </div>
+      <div>
+        <img src="images/greenBeans.webp" alt="Green Beans" width="300px" height="300px">
+        <p>Green Beans</p>
+        <p>Price: $5.00</p>
+        <input id="greenBeansOrder" type="number" name="greenBeansOrder">
+      </div>
+      <div>
+        <img src="images/grilledCorn.jpeg" alt="Grilled Corn" width="300px" height="300px">
+        <p>Grilled Corn</p>
+        <p>Price: $5.00</p>
+        <input id="grilledCornOrder" type="number" name="grilledCornOrder">
+      </div>
+    </section>
+    <section id="additionalInfo">
+      <div>
+        <label>Address:<input id="address" type="text" size="200" name="address"></label>
+      </div>
+      <div>
+        <label>Tell Us About The Venue:<input id="venueInformation" type="text" size="200" rows="4"
+            name="venueInformation"></label>
+      </div>
+      <div>
+        <label>Special Instructions:<input id="specialInstructions" type="text" size="200" rows="4"></label>
+      </div>
+    </section>
+    <input type="button" value="Submit Order" id="enter">
+    <input type="button" value="Calculate Cost" id="calculate">
+    <input type="reset" value="Clear">
+    <!-- Tally up the total cost and order-->
+    <table>
+      <caption>Price Summary</caption>
+      <tr>
+        <td>Order Amount:</td>
+        <td><span id="preTaxSum"></span></td>
+      </tr>
+      <tr>
+        <td>Tax Amount:</td>
+        <td><span id="plusTax"></span></td>
+      </tr>
+      <tr>
+        <td>Total Amount:</td>
+        <td><span id="totalSum"></span></td>
+      </tr>
+    </table>
+  </form>
 </body>
-<!-- Ordering Tool-->
-<h2 id="formTitle">Browse Our Selection</h2>
-<form action="" id="orderForm">
- <section id="appetizers">
-  <h2>Appetizers</h1>
-   <div>
-    <img src="images/potatoSkins.jpeg" alt="Potato Skins" width="300px" height="300px">
-    <p>Potato Skins</p>
-    <p>Price: $8.00</p>
-    <p>*Contains Pork*</p>
-    <input id="potatoSkinOrder" type="number">
-   </div>
-   <div>
-    <img src="images/jalapenoPoppers.jpeg" alt="Jalapeno Poppers" width="300px" height="300px">
-    <p>Jalapeño Poppers</p>
-    <p>Price: $7.50</p>
-    <input id="jalapenoPoppersOrder" type="number">
-   </div>
- </section>
- <section id="entrees">
-  <h2>Entrees</h2>
-  <div>
-   <img src="images/brisket.jpeg" alt="Brisket" width="300px" height="300px">
-   <p>Brisket</p>
-   <p>Price: $15.00</p>
-   <input id="brisketOrder" type="number">
-  </div>
-  <div>
-   <img src="images/ribs.jpeg" alt="Beef Ribs" width="300px" height="300px">
-   <p>Beef Ribs</p>
-   <p>Price: $20.00</p>
-   <input id="ribsOrder" type="number">
-  </div>
-  <div>
-   <img src="images/sausages.jpeg" alt="Pork Sasuages" width="300px" height="300px">
-   <p>Sausages</p>
-   <p>Price: $12.00</p>
-   <p>*Contains Pork*</p>
-   <input id="sausageOrder" type="number">
-  </div>
- </section>
- <section id="sides">
-  <h2>Sides</h2>
-  <div>
-   <img src="images/macAndCheese.jpeg" alt="Mac & Cheese" width="300px" height="300px">
-   <p>Mac & Cheese</p>
-   <p>Price: $6.00</p>
-   <input id="macAndCheeseOrder" type="number">
-  </div>
-  <div>
-   <img src="images/greenBeans.webp" alt="Green Beans" width="300px" height="300px">
-   <p>Green Beans</p>
-   <p>Price: $5.00</p>
-   <input id="greenBeansOrder" type="number">
-  </div>
-  <div>
-   <img src="images/grilledCorn.jpeg" alt="Grilled Corn" width="300px" height="300px">
-   <p>Grilled Corn</p>
-   <p>Price: $5.00</p>
-   <input id="grilledCornOrder" type="number">
-  </div>
- </section>
- <section id="additionalInfo">
-  <div>
-   <label>Address:<input id="address" type="text" size="200"></label>
-  </div>
-  <div>
-   <label>Tell Us About The Venue:<input id="venueInformation" type="text" size="200" rows="4"></label>
-  </div>
-  <div>
-   <label>Special Instructions:<input id="specialInstructions" type="text" size="200" rows="4"></label>
-  </div>
- </section>
- <input type="submit" value="Enter">
- <input type="reset" value="Clear">
- <!-- Tally up the total cost and order-->
- <table>
-  <caption>Price Summary</caption>
-  <tr>
-   <td>Order Amount:</td>
-   <td><span id="preTaxSum"></span></td>
-  </tr>
-  <tr>
-   <td>Tax Amount:</td>
-   <td><span id="plusTax"></span></td>
-  </tr>
-  <tr>
-   <td>Total Amount:</td>
-   <td><span id="totalSum"></span></td>
-  </tr>
- </table>
-</form>
-<section id="totalTally">
- <h1>Fill in the Tally</h1>
-</section>
-<section id="paymentInformation">
- <h1>Fill in payment function</h1>
-</section>
 
 </html>
