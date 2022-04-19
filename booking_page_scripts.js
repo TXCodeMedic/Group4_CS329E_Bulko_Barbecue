@@ -1,8 +1,42 @@
 //------------------------------------------------------------------------------------------------
 //                                      Booking Page Functions
 //                                           Main Functions
-function checkForm() {
+function checkTextEntries(address, venueInformation) {
+ if (address == '') {
+  return false
+ }
+ if (venueInformation == '') {
+  return false
+ }
+ return true
+}
 
+function checkItems(potatoSkinOrder, jalapenoPoppersOrder, brisketOrder, ribsOrder, sausageOrder, macAndCheeseOrder, greenBeansOrder, grilledCornOrder) {
+ if (potatoSkinOrder < 0) {
+  return false
+ }
+ if (jalapenoPoppersOrder < 0) {
+  return false
+ }
+ if (brisketOrder < 0) {
+  return false
+ }
+ if (ribsOrder < 0) {
+  return false
+ }
+ if (sausageOrder < 0) {
+  return false
+ }
+ if (macAndCheeseOrder < 0) {
+  return false
+ }
+ if (greenBeansOrder < 0) {
+  return false
+ }
+ if (grilledCornOrder < 0) {
+  return false
+ }
+ return true
 }
 
 function calculateTotalCost(potatoSkinOrder, jalapenoPoppersOrder, brisketOrder, ribsOrder, sausageOrder, macAndCheeseOrder, greenBeansOrder, grilledCornOrder) {
@@ -19,6 +53,7 @@ function calculateTotalCost(potatoSkinOrder, jalapenoPoppersOrder, brisketOrder,
  var totalSum = parseFloat(parseFloat(preTaxSum) + parseFloat(plusTax)).toFixed(2);
  printResults(preTaxSum, plusTax, totalSum)
 }
+// ----------------------------------------------------------------------------------------------------------------------
 //                                  Helper Functions
 function potatoSkinCalc(potatoSkinOrder) {
  return parseFloat(potatoSkinOrder * 8.00);
@@ -53,37 +88,76 @@ function printResults(preTaxSum, plusTax, totalSum) {
  plusTaxOutput.innerHTML = ('$' + plusTax)
  totalSumOutput.innerHTML = ('$' + totalSum)
 }
-function verifyInputs() {
-
-}
+// ----------------------------------------------------------------------------------------------------------------------------
 //                                     Event Listeners
-var orderTally = document.getElementById('orderForm');
-orderTally.addEventListener('submit', (event) => {
- event.preventDefault();
+// Calculating Cost of Item Event Listener
+var calculateOrder = document.getElementById('calculate')
 
- var potatoSkinOrder = document.getElementById('potatoSkinOrder');
- var jalapenoPoppersOrder = document.getElementById('jalapenoPoppersOrder');
- var brisketOrder = document.getElementById('brisketOrder');
- var ribsOrder = document.getElementById('ribsOrder');
- var sausageOrder = document.getElementById('sausageOrder');
- var macAndCheeseOrder = document.getElementById('macAndCheeseOrder');
- var greenBeansOrder = document.getElementById('greenBeansOrder');
- var grilledCornOrder = document.getElementById('grilledCornOrder');
+calculateOrder.addEventListener('click', event => {
+ var potatoSkinOrder = document.getElementById('potatoSkinOrder')
+ var jalapenoPoppersOrder = document.getElementById('jalapenoPoppersOrder')
+ var brisketOrder = document.getElementById('brisketOrder')
+ var ribsOrder = document.getElementById('ribsOrder')
+ var sausageOrder = document.getElementById('sausageOrder')
+ var macAndCheeseOrder = document.getElementById('macAndCheeseOrder')
+ var greenBeansOrder = document.getElementById('greenBeansOrder')
+ var grilledCornOrder = document.getElementById('grilledCornOrder')
 
- potatoSkinOrder = potatoSkinOrder.value
- jalapenoPoppersOrder = jalapenoPoppersOrder.value
- brisketOrder = brisketOrder.value
- ribsOrder = ribsOrder.value
- sausageOrder = sausageOrder.value
- macAndCheeseOrder = macAndCheeseOrder.value
- greenBeansOrder = greenBeansOrder.value
- grilledCornOrder = grilledCornOrder.value
+ var potatoSkinOrder = potatoSkinOrder.value
+ var jalapenoPoppersOrder = jalapenoPoppersOrder.value
+ var brisketOrder = brisketOrder.value
+ var ribsOrder = ribsOrder.value
+ var sausageOrder = sausageOrder.value
+ var macAndCheeseOrder = macAndCheeseOrder.value
+ var greenBeansOrder = greenBeansOrder.value
+ var grilledCornOrder = grilledCornOrder.value
 
- // ADD IN FURTHER CODE TO LOOK AT DATE/TIME AVAILABILITY AND CHECK FORM BEFORE CALCULATING COST
- calculateTotalCost(potatoSkinOrder, jalapenoPoppersOrder, brisketOrder, ribsOrder, sausageOrder, macAndCheeseOrder, greenBeansOrder, grilledCornOrder);
- //if (checkForm == true) {
- // calculateTotalCost(potatoSkinOrder, jalapenoPoppersOrder, brisketOrder, ribsOrder, sausageOrder, macAndCheeseOrder, greenBeansOrder, grilledCornOrder);
- //}
- //else if (checkForm == false) {
- //return window.alert('Fill in the form')
+ if (checkItems(potatoSkinOrder, jalapenoPoppersOrder, brisketOrder, ribsOrder, sausageOrder, macAndCheeseOrder, greenBeansOrder, grilledCornOrder) == true) {
+  calculateTotalCost(potatoSkinOrder, jalapenoPoppersOrder, brisketOrder, ribsOrder, sausageOrder, macAndCheeseOrder, greenBeansOrder, grilledCornOrder)
+ }
+ else {
+  window.alert("Make sure there are no negative values in the order form")
+ }
+})
+
+// Submitting the Order Event Listener
+var submitOrder = document.getElementById('enter')
+
+submitOrder.addEventListener('click', event => {
+ var address = document.getElementById('address')
+ var venueInformation = document.getElementById('venueInformation')
+ var specialInstructions = document.getElementById('specialInstructions')
+ var potatoSkinOrder = document.getElementById('potatoSkinOrder')
+ var jalapenoPoppersOrder = document.getElementById('jalapenoPoppersOrder')
+ var brisketOrder = document.getElementById('brisketOrder')
+ var ribsOrder = document.getElementById('ribsOrder')
+ var sausageOrder = document.getElementById('sausageOrder')
+ var macAndCheeseOrder = document.getElementById('macAndCheeseOrder')
+ var greenBeansOrder = document.getElementById('greenBeansOrder')
+ var grilledCornOrder = document.getElementById('grilledCornOrder')
+
+ var address = address.value
+ var venueInformation = venueInformation.value
+ var specialInstructions = specialInstructions.value
+ var potatoSkinOrder = potatoSkinOrder.value
+ var jalapenoPoppersOrder = jalapenoPoppersOrder.value
+ var brisketOrder = brisketOrder.value
+ var ribsOrder = ribsOrder.value
+ var sausageOrder = sausageOrder.value
+ var macAndCheeseOrder = macAndCheeseOrder.value
+ var greenBeansOrder = greenBeansOrder.value
+ var grilledCornOrder = grilledCornOrder.value
+
+ if (checkItems(potatoSkinOrder, jalapenoPoppersOrder, brisketOrder, ribsOrder, sausageOrder, macAndCheeseOrder, greenBeansOrder, grilledCornOrder) == true) {
+  if (checkTextEntries(address, venueInformation) == true) {
+   submitOrder.type = 'submit'
+   submitOrder.submit
+  }
+  else {
+   window.alert('Fill out Address and Venue Information')
+  }
+ }
+ else {
+  window.alert('There can be no negative values in the Order')
+ }
 })
