@@ -1,4 +1,8 @@
 <?php
+
+$month = $_POST['month'];
+$day = $_POST['day'];
+$year = $_POST['year'];
 $address = $_POST['address'];
 $venueInformation = $_POST['venueInformation'];
 $potatoSkinOrder = $_POST['potatoSkinOrder'];
@@ -11,12 +15,14 @@ $greenBeansOrder = $_POST['greenBeansOrder'];
 $grilledCornOrder = $_POST['grilledCornOrder'];
 $cost_pre_tax = 0;
 $totalCost = 0;
+$orderDate = ($month . ' ' .  $day . ' ' . $year );
 
-
+echo 'year: ' .  $year . '<br>';
 echo 'Thank you for the order!' . '<br>' . 'Here is a reciept!' . '<br>';
 
 echo ('<h1>' .  'Order Summary' . '</h1>' );
 echo '<br>';
+echo ('Date of order: ' . $orderDate . '<br>' );
 echo ('Address: ' . $address . '<br>');
 echo ('Type of Venue: ' . $venueInformation . '<br>');
 echo ('_____________________________________________________' . '<br>');
