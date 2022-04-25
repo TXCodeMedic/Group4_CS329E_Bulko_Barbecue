@@ -1,8 +1,8 @@
-body{
-  background-color: #C4C4C4 ;
+body {
+  background-color: #C4C4C4;
 }
 
-header{
+header {
   background-color: white;
   color: #C43A30;
   min-width: 1000px;
@@ -12,33 +12,88 @@ header{
   margin-right: 0%;
 }
 
-#header-top img{
+#header-top img {
   width: 400px;
   float: left;
 }
 
-#login_account{
+#login_account {
   float: right;
 }
 
-nav{
-  height: 250px; 
+nav {
+  height: 250px;
 }
 
 
-#calendar{
+#info {
   background-color: rgb(170, 175, 175);
-  margin-left: 5%;
-  margin-right: 5%;
-  height: 500px;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  height: 30%;
   min-width: 1000px;
   min-height: 500px;
-  margin-top:30%;
+  margin-top: 5%;
   margin-bottom: 3%;
 }
 
-footer{
+#info h2 {
+  text-align: center;
+  font-size: 2.8rem;
+}
+
+#info p {
+  text-align: center;
+  font-size: 1.3rem;
+  padding-left: 2%;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+#first_half {
+  background-color: #C4C4C4;
+  width: 40%;
+  height: 80%;
+  float: left;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+#first_half h3 {
+  text-align: center;
+  font-size: 2rem;
+  text-decoration: underline;
+}
+
+#first_half p {
+  text-align: center;
+  font-size: 1.232rem;
+  height: 75%;
+}
+
+#second_half {
+  background-color: #C4C4C4;
+  width: 40%;
+  height: 80%;
+  float: left;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+#second_half h3 {
+  text-align: center;
+  font-size: 2rem;
+  text-decoration: underline;
+}
+
+#second_half ul {
+  text-align: center;
+  font-size: 1.375rem;
+}
+
+footer {
   background-color: rgb(170, 175, 175);
+  text-align: center;
 }
 
 ul {
@@ -51,7 +106,7 @@ ul {
   overflow: hidden;
   background-color: #ffffff;
 }
-  
+
 .topnav a {
   float: right;
   color: #c53a30;
@@ -61,7 +116,7 @@ ul {
   text-decoration: none;
   font-size: 17px;
 }
-  
+
 .topnav a:hover {
   background-color: #ddd;
   color: black;
@@ -70,28 +125,34 @@ ul {
 .topnav a.active {
   background-color: #04AA6D;
   color: white;
-}  
+}
 
 
-* {box-sizing:border-box}
+* {
+  box-sizing: border-box
+}
 
 /* Slideshow container */
 .slideshow-container {
   margin: 0px auto;
-  width:1100px; 
-  height:500px; 
-  text-align:center; 
+  width: 1100px;
+  height: 500px;
+  text-align: center;
+
 }
 
 /* image default */
 .mySlides {
   display: none;
 }
+
 .mySlides:first-child {
   display: block;
 }
+
 /* Next & previous buttons */
-.prev, .next {
+.prev,
+.next {
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -113,14 +174,15 @@ ul {
 }
 
 /* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* Caption text */
 .text {
-  color: #f2f2f2;
-  font-size: 15px;
+  color: black;
+  font-size: 1.5rem;
   padding: 8px 12px;
   position: relative;
   bottom: 8px;
@@ -130,8 +192,8 @@ ul {
 
 /* Number text (1/3 etc) */
 .numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
+  color: black;
+  font-size: 1rem;
   padding: 8px 12px;
   position: relative;
   top: 0;
@@ -140,18 +202,19 @@ ul {
 /* The dots/bullets/indicators */
 .dot {
   cursor: pointer;
-  position:relative;
+  position: relative;
   margin: 0px auto;
-  width:15px; 
-  height:15px; 
-  text-align:center; 
+  width: 15px;
+  height: 15px;
+  text-align: center;
   background-color: #bbb;
   border-radius: 50%;
   display: inline-block;
   transition: background-color 0.6s ease;
 }
 
-.active, .dot:hover {
+.active,
+.dot:hover {
   background-color: #717171;
 }
 
@@ -164,11 +227,51 @@ ul {
 }
 
 @-webkit-keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
+  from {
+    opacity: .4
+  }
+
+  to {
+    opacity: 1
+  }
 }
 
 @keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
+  from {
+    opacity: .4
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
+.fa {
+  margin-right: 1%;
+  margin-top: .2%;
+  float: right;
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.7;
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+/* Twitter */
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
 }
