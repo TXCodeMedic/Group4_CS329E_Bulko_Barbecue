@@ -1,5 +1,11 @@
+* {
+  box-sizing: border-box
+}
+
 body {
   background-color: #C4C4C4;
+  margin: 0px;
+  padding: 0px;
 }
 
 header {
@@ -20,11 +26,6 @@ header {
 #login_account {
   float: right;
 }
-
-nav {
-  height: 250px;
-}
-
 
 #info {
   background-color: rgb(170, 175, 175);
@@ -125,11 +126,6 @@ ul {
 .topnav a.active {
   background-color: #04AA6D;
   color: white;
-}
-
-
-* {
-  box-sizing: border-box
 }
 
 /* Slideshow container */
@@ -274,4 +270,44 @@ ul {
 .fa-twitter {
   background: #55ACEE;
   color: white;
+}
+
+.calender{
+  max-width: 800px;
+  font-family: serif;
+  font-weight: bold;
+  color: black;
+  margin: auto;
+}
+.month{
+  text-align: center;
+  background: white;
+  font-size: 80px;
+  letter-spacing: 1px;
+  color: black;
+  border:3px solid black;
+}
+table, th, td{
+  width: 100%;
+  table-layout: fixed;
+  text-align: center;
+  font-size: 27px;
+  border-collapse: collapse;
+  border:5px solid black;
+  font-family: Elaphant;
+}
+tr, th, td{
+  padding: 15px;
+}
+th{
+  background: #C4C4C4;
+  color: black;
+  font-family: arial black;
+}
+td{
+  background: #C4C4C4;
+  color: black;
+}
+td:hover{
+  background: #C43A30;
 }
