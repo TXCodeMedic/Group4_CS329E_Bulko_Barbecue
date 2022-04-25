@@ -59,6 +59,3 @@ $totalCost = ($cost_pre_tax + $tax);
 echo 'Cost before taxes: ' . $cost_pre_tax . '<br>';
 echo 'Taxes: ' . number_format((float)$tax,2,'.','')  . '<br>';
 echo 'Total Cost: ' . number_format((float)$totalCost,2, '.', '');
-
-
-?>
