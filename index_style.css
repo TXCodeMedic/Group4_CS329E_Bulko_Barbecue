@@ -38,6 +38,12 @@ header {
   margin-bottom: 3%;
 }
 
+video {
+  float: left;
+  margin-left: 19%;
+  padding-bottom: 10%;
+}
+
 #info h2 {
   text-align: center;
   font-size: 2.8rem;
