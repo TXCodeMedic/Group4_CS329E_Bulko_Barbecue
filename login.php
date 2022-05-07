@@ -13,7 +13,6 @@ if (isset($_POST['user']) and isset($_POST['pass'])) {
          setcookie("user", $_POST['user'], time()+120, "/");
          header("Location: booking_page.php");
       }
-
    }
 }
 
@@ -24,7 +23,7 @@ print <<<LOGIN
 <html lang="en">
 
 <head>
-	<title>Exam 3 Login Page</title>
+	<title>Project Login Page</title>
 	<meta charset="UTF-8">
 	<meta name="description" content="Login Page">
 	<meta name="author" content="Sawad Kazi">
@@ -50,7 +49,8 @@ print <<<LOGIN
             </tr>
         </table>
         <div>
-            <input type = "submit" name = "login" value = "Log In" />
+            <input type = "submit" name = "login" value = "Log In" />&nbsp;
+            <input type = "submit" name = "register" value = "Register" />
         </div>
     </form>
 </body>
