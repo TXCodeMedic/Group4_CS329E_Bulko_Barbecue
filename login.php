@@ -32,6 +32,7 @@
             <input type = "submit" name = "login" value = "Log In">
         </div>
     </form>
+	<div><a href='registration_form.php'>New User? Register here!</a></div>
 </body>
 
 <?php
