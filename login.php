@@ -46,7 +46,7 @@ if (isset($_POST['user']) and isset($_POST['pass'])) {
    while($row = mysqli_fetch_assoc($result)) {
       $test = $row['user'];
       if ($row['user'] == $_POST['user'] and $row['pass'] == $_POST['pass']) {
-         echo "<script>alert('logged in')</script>";
+      
          setcookie("user", $_POST['user'], time()+120, "/");
          echo "<script>window.location.replace('booking_page.html')</script>";
       }
