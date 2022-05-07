@@ -3,14 +3,17 @@ error_reporting(E_ALL);
 ini_set("display_errors", "on");
 
 if (isset($_POST['user']) and isset($_POST['pass'])) {
+   echo "<script>alert('tried')</script>";
    $conn = mysqli_connect("spring-2022.cs.utexas.edu", "cs329e_bulko_sawadk", "bit2folk3Can", "cs329e_bulko_sawadk");
    $query = "SELECT user, pass FROM customers";
    $stmt = mysqli_prepare($conn, $query);
    mysqli_stmt_execute($stmt);
    $result = mysqli_stmt_get_result($stmt);
    while($row = mysqli_fetch_assoc($result)) {
+      $test = $row['user'];
+      echo "<script>alert('$row')</script>";
       if ($row['user'] == $_POST['user'] and $row['pass'] == $_POST['pass']) {
-         echo "<script>alert('')</script>";
+         echo "<script>alert('logged in')</script>";
          setcookie("user", $_POST['user'], time()+120, "/");
          header("Location: booking_page.php");
       }
@@ -44,10 +47,10 @@ print <<<LOGIN
       </div>
     </header>
     <br><br>
-    <form id="login_form">
-        <label>Username: <input name="user" type="text" size="30" /> </label><br><br>
-        <label>Password: <input name="pass" type="password" size="30" /> </label><br><br>
-        <button id="register">Log In</button>
+    <form method = "post" action = "$script">
+        <label>Username: <input name="user" type="text" size="30" required> </label><br><br>
+        <label>Password: <input name="pass" type="password" size="30" required> </label><br><br>
+        <input type="submit" name="login" value="Log In">
         <input type="reset" value="Clear">
     </form>
     <br>
