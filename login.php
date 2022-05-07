@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html>
-   <head>
-      <title> Login Page </title>
-   </head>
-
-<body>
-
 <?php
-
-
    $file = fopen("passwd.txt", "r");
    $users = [];
    $count = 0;
@@ -63,7 +53,4 @@
       }
 
 
-   ?>
-
-</body>
-</html>
+?>
