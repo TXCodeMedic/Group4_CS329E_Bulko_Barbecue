@@ -1,56 +1,58 @@
 <?php
-   $file = fopen("passwd.txt", "r");
-   $users = [];
-   $count = 0;
-   while(!feof($file)) {
-      $line = fgets($file);
-      $users[$count] = trim($line);
-      $count++;
-   }
-   fclose($file);
+error_reporting(E_ALL);
+ini_set("display_errors", "on");
 
-
-   if ($_SERVER["REQUEST_METHOD"] == "POST") {
-      session_start();
-
-      // Get values submitted from the login form
-      // beyonce is the only authorized user:  her name and
-      // password are hardcoded into this file just cuz she's beyonce
-      
-      if ($username == "beyonce" && $password == "lemonade") {
-         $_SESSION["username"] = $username;
-         setcookie("name", $username, time() + (10));
-         //setcookie("password", $password, time() + (3600));
-	      header("Location: booking_page.php");
-      }
-      else {
-         echo "<center>Invalid username or password</center>";
-         echo "<br>";
+if (isset($_POST['user']) and isset($_POST['pass'])) {
+   $conn = mysqli_connect("spring-2022.cs.utexas.edu", "cs329e_bulko_sawadk", "bit2folk3Can", "cs329e_bulko_sawadk");
+   $query = "SELECT user, pass FROM customers";
+   $stmt = mysqli_prepare($conn, $query);
+   mysqli_stmt_execute($stmt);
+   $result = mysqli_stmt_get_result($stmt);
+   while($row = mysqli_fetch_assoc($result)) {
+      if ($row['user'] == $_POST['user'] and $row['pass'] == $_POST['pass']) {
+         setcookie("user", $_POST['user'], time()+120, "/");
+         header("Location: booking_page.php");
       }
 
    }
+}
 
-   ?>
-   <p style="text-align: center;">Please login with your name and password to proceed with placing your order:</p>
-   <form method="post" align="center" action="login.php">
-      <div> Username:
-            <input type="text" name="username" autofocus></div>
-      <div> Password:
-            <input type="password" name="password"> </div>
-      <input type="submit" value="Login">
-   </form>
-   <?php
+$script = $_SERVER['PHP_SELF'];
+print <<<LOGIN
+<!DOCTYPE html>
 
-      $username = $_POST["username"];
-      $password = $_POST["password"];
+<html lang="en">
 
-      $userAndPass = $username . ":" . $password;
-      for($i = 0; $i < count($users); $i++) {
-         if($userAndPass == $users[$i]) {
-            setcookie("name", $username, time() + (10));
-            header("Location: booking_page.php");
-         }
-      }
+<head>
+	<title>Exam 3 Login Page</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="Login Page">
+	<meta name="author" content="Sawad Kazi">
+    <style>
+        div, h3 {
+            margin: auto;
+            width: 10%;
+        }
+    </style>
+</head>
 
-
+<body>
+    <h3>Login</h3><br>
+    <form method = "post" action = "$script">
+        <table align = "center" width = "30%">
+            <tr>
+                <th>Username</th>
+                <td><input type="text" name="user" required></td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td><input type="password" name="pass" required></td>
+            </tr>
+        </table>
+        <div>
+            <input type = "submit" name = "login" value = "Log In" />
+        </div>
+    </form>
+</body>
+LOGIN;
 ?>
